@@ -1,0 +1,255 @@
+<!-- HEADER -->
+<% include ../partials/header %>   
+<!--END HEADER -->
+
+
+    <!-- MAIN WRAPPER -->
+    <div id="wrap" >
+        
+
+        <!-- HEADER SECTION -->
+            <% include ../partials/headersection %>     
+        <!-- END HEADER SECTION -->
+
+        <!-- MENU LATERAL GAUCHE -->
+              <% include ../partials/menulateralgauche %>
+        <!-- FIN MENU LATERAL GAUCHE -->
+
+
+
+        <!--PAGE CONTENT -->
+        <div id="content">
+             
+            <div class="inner" style="min-height: 700px;">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1> <b>Administration</b> GARDE </h1>
+                    </div>
+                </div>
+                <hr/>
+
+                
+
+                 <!--  STACKING CHART  SECTION   -->
+                <div class="row">
+                   <div class="col-lg-12">
+                    <div class="panel panel-default">
+                            <div class="panel-heading">
+                            Liste des utilisateurs
+                            </div>
+                            <div class="panel-body">
+                              <div class="demo-container">
+                                <div id="placeholderStack" class="demo-placeholder">
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="white-box">
+
+                                  <!-- Modal -->
+                                        <% include ../elements/utilisateurs/add %>
+                                  <!-- form edit -->
+                                        <% include ../elements/utilisateurs/edit %>
+                                  <!-- delete pour la supression d'un groupes -->
+                                        <% include ../elements/utilisateurs/delete %>
+                                  <!-- /.modal-content --> 
+                                        
+                                  <!--            -->
+
+
+                <!-- delete pour la supression d'un users -->
+
+
+            <!-- <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                      <div class="modal-dialog">
+                    <div class="modal-content">
+                          <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                      </div>
+
+                          <div class="modal-body">
+                           <form method="POST" action="/utilisateurs/supprimer/">
+                                      <input type="hidden" name="id"  id="ids">
+                                      <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+                                       <div class="modal-footer">
+                                                                   
+                                          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+
+                                          <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+
+                                       </div> 
+                                                    
+                                </div>
+                          </form> 
+                        </div> -->
+                    <!-- /.modal-content --> 
+                 
+                           </div>
+
+
+
+
+                              <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
+                                    <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>addres</th>
+                                          <th>cni_date</th>
+                                          <th>cni_expire</th>
+                                          <th>cni_no</th>
+                                         <!-- <th>cni_place</th>-->
+                                          <!--<th>cni_scan</th>-->
+                                         <!-- <th>email</th>
+                                          <th>login</th>
+                                          <th>nom</th>
+                                          <th>password</th>
+                                          <th>prenom</th>
+                                          <th>Tel1</th>
+                                          <th>Tel2</th>-->
+                                          <!--<th>Add</th>-->
+                                          <th>Edit</th>
+                                          <th>delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+
+                                        <tr>
+                                          <th>#</th>
+                                          <th>addres</th>
+                                          <th>cni_date</th>
+                                          <th>cni_expire</th>
+                                          <th>cni_no</th>
+                                          <!--<th>cni_place</th>
+                                          <th>cni_scan</th>-->
+                                          <!--<th>email</th>
+                                          <th>login</th>
+                                          <th>nom</th>
+                                          <th>password</th>
+                                          <th>prenom</th>
+                                          <th>Tel1</th>
+                                          <th>Tel2</th>-->
+                                          <!--<th>Add</th>-->
+                                          <th>Edit</th>
+                                          <th>delete</th>
+                                        </tr>
+                                    </tfoot>
+                                  <tbody>
+                                    
+
+
+
+                                    <% todolist.forEach(function(todo, index) { %>
+                                         <tr class="users">
+                                             <th scope="row"><%= index %></th>
+                                                <td class="addres"><%= todo.addres %></td>
+                                              <input id="id" type="hidden" value="<%= todo.id %>">
+                                              <td class="cni_date"><%= todo.cni_date %></td>
+                                              <td class="cni_expire"><%= todo.cni_expire %></td>
+                                              <td class="cni_no"><%= todo.cni_no %></td>
+                                             
+                                              <input id="cni_place" type="hidden" value="<%= todo.cni_place %>">
+                                              <input id="cni_scan" type="hidden" value="<%= todo.cni_scan %>">
+                                              <input id="email" type="hidden" value="<%= todo.email %>">
+                                              <input id="tel" type="hidden" value="<%= todo.tel %>">
+                                              <input id="tel2" type="hidden" value="<%= todo.tel2 %>">
+                                              <input id="login" type="hidden" value="<%= todo.login %>">
+                                              <input id="password" type="hidden" value="<%= todo.password %>">
+                                              <input id="nom" type="hidden" value="<%= todo.nom %>">
+                                              <input id="prenom" type="hidden" value="<%= todo.prenom %>">
+                                              <!--<td class="email"><%= todo.email %></td>
+                                              <td class="login"><%= todo.login %></td>
+                                              <td class="nom"><%= todo.nom %></td>
+                                              <td class="password"><%= todo.password %></td>
+                                              <td class="prenom"><%= todo.prenom %></td>
+                                              <td class="tel"><%= todo.tel %></td>
+                                              <td class="tel2"><%= todo.tel2 %></td> -->
+                                            
+                                              <!--<td><a data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></a></td>-->
+
+                                             <!-- <td><button class="btn btn-primary btn-xs btnEditusers" data-title="edit" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span></button></td> -->
+
+                                             <!-- <td><a data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></a></td> -->
+
+                                             <td><button class="btn btn-primary btn-xs btnEditusers" data-title="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></td>
+
+                                              <!--<td><a href="/todo/supprimer/<%= todo.id %>"><span class="glyphicon glyphicon-trash"></span></p> </a></td> -->
+
+                                              <!--<td><a data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></p> </a></td>-->
+                                            <td> <button class="btn btn-danger btn-xs btnmodifierusers" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button> </td>
+                                        </tr>
+                                    <% }); %>
+                                   
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                       </div>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                 <!--END STACKING CHART SCETION  -->
+        <!--END PAGE CONTENT -->
+         <!-- RIGHT STRIP  SECTION -->
+            <% include ../partials/menulateraldroit %>   
+         <!-- END RIGHT STRIP  SECTION -->
+    </div>
+
+    <!--END MAIN WRAPPER -->
+
+    <!-- FOOTER -->
+    <% include ../partials/footer %>   
+    <!--END FOOTER -->
+    <% include ../partials/js %>
+
+  <script type="text/javascript">
+   
+    $(document).ready(function() {
+      $('#example2').DataTable();
+    } );
+       
+        $(function () {
+            $(".users").each(function () {
+              var $users = $(this);
+
+              $users.find('.btnEditusers').click(function(){
+
+                  // alert($user.find(".nom").text());
+                  // alert($user.find(".prenom").text());
+                  
+                  //pour toute  balise qui a pour id nom, dans son attribut value on doit mettre le texte du petit de user qui a pour classe nom
+                  $("#addres").val($users.find(".addres").text())
+                  $("#cni_date").val($users.find(".cni_date").text())
+                  $("#cni_expire").val($users.find(".cni_expire").text())
+                  $("#cni_no").val($users.find(".cni_no").text())
+                  $("#cni_place").val($users.find("#cni_place").val())
+                  $("#cni_scan").val($users.find("#cni_scan").val())
+                  $("#email").val($users.find("#email").val())
+                  $("#login").val($users.find("#login").val())
+                  $("#nom").val($users.find("#nom").val())
+                  $("#password").val($users.find("#password").val())
+                  $("#prenom").val($users.find("#prenom").val())
+                  $("#tel").val($users.find("#tel").val())
+                  $("#tel2").val($users.find("#tel2").val())
+                  $("#id2").val($users.find("#id").val())
+
+              });
+            });
+        });
+        
+        $(function () {
+          $(".users").each(function () {
+              var $users = $(this);
+              $users.find('.btnmodifierusers').click(function(){
+                  $("#ids").val($users.find("#id").val())
+              });
+            });
+          });
+    </script>
+</body>
+    <!-- END BODY -->
+</html>

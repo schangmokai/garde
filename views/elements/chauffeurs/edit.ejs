@@ -1,0 +1,134 @@
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modifier un chauffeurs</h4>
+                      </div>
+                      <div class="modal-body">
+                          
+                           <form  action="/chauffeurs/update/" method="post" role="form" enctype="multipart/form-data">
+                               
+                             <input type="hidden" id="id2" name="id">
+                              <br>
+                              <div class="row">
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault01">addres</label>
+                          <input type="text" class="form-control" id="addres" name="addres"  required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault02">cni_date</label>
+                          <input type="text" class="form-control" id="cni_date" name="cni_date"  required>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault03">cni_expire</label>
+                          <input type="text" id="cni_expire" class="form-control" name="cni_expire"  required>
+                        </div>
+                       
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault06">cni_no</label>
+                          <input type="text" class="form-control" id="cni_no" name="cni_no"  required>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault05">cni_place</label>
+                          <input type="text" class="form-control" id="cni_place" name="cni_place"  required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault06">cni_scan</label>
+                          <input type="text" class="form-control" id="cni_scan" name="cni_scan" required>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                       
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault08">nom</label>
+                          <input type="text" class="form-control" id="nom" name="nom" required>
+                        </div>
+
+                         <div class="col-md-6 mb-3">
+                          <label for="validationDefault04">permis_cat</label>
+                          <input type="text" class="form-control" id="permis_cat" name="permis_cat" required>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                       
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault08">permis_date</label>
+                          <input type="text" class="form-control" id="permis_date" name="permis_date"  required>
+                        </div>
+
+                         <div class="col-md-6 mb-3">
+                          <label for="validationDefault04">permis_expire</label>
+                          <input type="text" class="form-control" id="permis_expire" name="permis_expire" required>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                       
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault08">permis_no</label>
+                          <input type="text" class="form-control" id="permis_no" name="permis_no" required>
+                        </div>
+
+                         <div class="col-md-6 mb-3">
+                          <label for="validationDefault04">permis_place</label>
+                          <input type="text" id="permis_place" class="form-control" name="permis_place" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                       
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault08">permis_scan</label>
+                          <input type="text" class="form-control" id="permis_scan" name="permis_scan" required>
+                        </div>
+
+                         <div class="col-md-6 mb-3">
+                          <label for="validationDefault04">prenom</label>
+                          <input type="text" class="form-control" id="prenom" name="prenom" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                       
+                        <div class="col-md-6 mb-3">
+                          <label for="validationDefault08">telephone 1</label>
+                          <input type="text" class="form-control" id="tel" name="tel" required>
+                        </div>
+
+                         <div class="col-md-6 mb-3">
+                          <label for="validationDefault04">telephone</label>
+                          <input type="text" class="form-control" id="tel2" name="tel2" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6 mb-3">
+                            <label for="validationDefault04">Images</label>
+                            <input type="file" class="form-control" name="filetoupload">
+                          </div>
+                          
+                      </div>
+
+                      <div class="modal-footer">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <button type="button" class="btn btn-danger btn-lg width-100" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+                          </div>
+                          <div class="col-md-6">
+                            <button class="btn btn-primary btn-lg width-100" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      <br>
+                    </form>
+              </div>
+            </div>
+          </div>
+</div>

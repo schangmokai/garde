@@ -1,0 +1,22 @@
+{
+	"serveur":"",
+	"port": 8085,
+	"repertoire": "C:/wamp/www/Garde/Qrcode/",
+	"repertoireImage": "C:/wamp/www/Garde/Images/",
+	"repertoireImageChauffeur": "C:/wamp/www/Garde/ImageChauffeur/",
+	"repertoireQrcode": "C:/wamp/www/Garde/Qrcode/",
+	"database":"gardes",
+	"username":"root",
+	"password":"",
+	"options":{
+	  "host": "localhost",
+	  "dialect": "mysql",
+
+	  "pool": {
+	    "max": 5,
+	    "min": 0,
+	    "idle": 10000
+	  }
+
+	}
+}

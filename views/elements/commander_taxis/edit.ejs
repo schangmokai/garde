@@ -1,0 +1,102 @@
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modifier un chauffeurs</h4>
+                      </div>
+                      <div class="modal-body">
+                           <form  action="/chauffeurs/update/" method="post" role="form">
+                               
+                             <input type="hidden" id="id2" name="id">
+                              <br>
+                           <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault01">date_debut</label>
+                              <input type="text" class="form-control" name="date_debut"  id = "date_debut" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault02">date_fin</label>
+                              <input type="text" class="form-control" name="date_fin" id="date_fin" required>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault03">iscommand</label>
+                              <input type="text" class="form-control" name="iscommand" id="iscommand" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault06">lat_depart</label>
+                              <input type="text" class="form-control" name="lat_depart" id="lat_depart" required>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault05">lat_arrive</label>
+                              <input type="text" class="form-control" name="lat_arrive" id="lat_arrive"  required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault06">lon_depart</label>
+                              <input type="text" class="form-control" name="lon_depart" id="lon_depart" required>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault08">lon_arrive</label>
+                              <input type="text" class="form-control" name="lon_arrive" id="lon_arrive" required>
+                            </div>
+                             <div class="col-md-6 mb-3">
+                              <label for="validationDefault04">point_depart</label>
+                              <input type="text" class="form-control" name="point_depart" id="point_depart" required>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault08">point_arrive</label>
+                              <input type="text" class="form-control" name="point_arrive" id="point_arrive"  required>
+                            </div>
+                             <div class="col-md-6 mb-3">
+                              <label for="validationDefault04">permis_expire</label>
+                              <input type="text" class="form-control" name="permis_expire" required>
+                            </div>
+                          </div>
+                          <br>  
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                                 <label for="validationDefault07">utilisateur</label>
+                                 <select class="form-control" name="utilisateurId" >     
+                                    <% listutilisateurs.forEach(function(todo, index) { %>
+                                            <option value="<%= todo.id %>"><%= todo.nom %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                 <label for="validationDefault07">vehicule</label>
+                                 <select class="form-control" name="vehiculeId" >     
+                                    <% listvehicule.forEach(function(todo, index) { %>
+                                            <option value="<%= todo.id %>"><%= todo.description %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                          </div>   
+                      <div class="modal-footer">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <button type="button" class="btn btn-danger btn-lg width-100" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+                          </div>
+                          <div class="col-md-6">
+                            <button class="btn btn-primary btn-lg width-100" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                          </div>
+                        </div>
+                      </div>
+                     
+                      <br>
+                    </form>
+              </div>
+            </div>
+          </div>
+</div>

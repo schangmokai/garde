@@ -1,0 +1,263 @@
+<!-- HEADER -->
+<% include ../partials/header %>   
+<!--END HEADER -->
+
+
+    <!-- MAIN WRAPPER -->
+    <div id="wrap" >
+        
+
+        <!-- HEADER SECTION -->
+            <% include ../partials/headersection %>     
+        <!-- END HEADER SECTION -->
+
+        <!-- MENU LATERAL GAUCHE -->
+              <% include ../partials/menulateralgauche %>
+        <!-- FIN MENU LATERAL GAUCHE -->
+
+        <!--PAGE CONTENT -->
+        <div id="content">
+             
+            <div class="inner" style="min-height: 700px;">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1> <b>Administration</b> GARDE </h1>
+                    </div>
+                </div>
+                <hr/>
+
+                
+
+                 <!--  STACKING CHART  SECTION   -->
+                <div class="row">
+                   <div class="col-lg-12">
+                    <div class="panel panel-default">
+                            <div class="panel-heading">
+                            Liste des Vehicules
+                            </div>
+                            <div class="panel-body">
+                              <div class="demo-container">
+                                <div id="placeholderStack" class="demo-placeholder">
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="white-box">
+
+                                  <!-- Modal -->
+                                        <% include ../elements/vehicules/add %>
+                                  <!-- form edit -->
+                                        <% include ../elements/vehicules/edit %>
+                                  <!-- delete pour la supression d'un groupes -->
+                                        <% include ../elements/vehicules/delete %>
+                                  <!-- /.modal-content --> 
+                                        
+                                  <!--            -->
+
+
+                <!-- delete pour la supression d'un vehicules -->
+
+
+            <!-- <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                      <div class="modal-dialog">
+                    <div class="modal-content">
+                          <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                      </div>
+
+                          <div class="modal-body">
+                           <form method="POST" action="/Vehicules/supprimer/">
+                                      <input type="hidden" name="id"  id="ids">
+                                      <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+                                       <div class="modal-footer">
+                                                                   
+                                          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+
+                                          <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+
+                                       </div> 
+                                                    
+                                </div>
+                          </form> 
+                        </div> -->
+                    <!-- /.modal-content --> 
+                 
+                           </div>
+
+                              <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
+                                    <thead>
+                                        <tr>
+                                          <th>#</th>
+                                         <!-- <th>carte_grice_expire</th>-->
+                                          <th>carte_grice_issue</th>
+                                          <th>carte_grice_num</th>
+                                          <th>carte_grise_place</th>
+                                          <th>code</th>
+                                          <!--<th>code_gps</th>-->
+                                         <!-- <th>email</th>
+                                          <th>login</th>
+                                          <th>nom</th>
+                                          <th>password</th>
+                                          <th>prenom</th>
+                                          <th>Tel1</th>
+                                          <th>Tel2</th>-->
+                                          <!--<th>Add</th>-->
+                                          <th>Edit</th>
+                                          <th>delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+
+                                        <tr>
+                                          <th>#</th>
+                                         <!-- <th>carte_grice_expire</th>-->
+                                          <th>carte_grice_issue</th>
+                                          <th>carte_grice_num</th>
+                                          <th>carte_grise_place</th>
+                                          <th>code</th>
+                                          <!--<th>code_gps</th>-->
+                                          <!--<th>email</th>
+                                          <th>login</th>
+                                          <th>nom</th>
+                                          <th>password</th>
+                                          <th>prenom</th>
+                                          <th>Tel1</th>
+                                          <th>Tel2</th>-->
+                                          <!--<th>Add</th>-->
+                                          <th>Edit</th>
+                                          <th>delete</th>
+                                        </tr>
+                                    </tfoot>
+                                  <tbody>
+
+                                    <% todolist.forEach(function(todo, index) { %>
+                                         <tr class="vehicules">
+                                             <th scope="row"><%= index %></th>
+                                                <td class="carte_grice_expire"><%= todo.carte_grice_expire %></td>
+                                              <input id="id" type="hidden" value="<%= todo.id %>">
+                                             <!-- <td class="carte_grice_issue"><%= todo.carte_grice_issue %></td>-->
+                                              <td class="carte_grice_num"><%= todo.carte_grice_num %></td>
+                                              <td class="carte_grise_place"><%= todo.carte_grise_place %></td>
+                                              <td class="code"><%= todo.code %></td>
+                                              
+                                              <input id="code_gps" type="hidden" value="<%= todo.code_gps %>">
+                                              <input id="color" type="hidden" value="<%= todo.color %>">
+                                              <input id="date_fabri" type="hidden" value="<%= todo.date_fabri %>">
+                                              <input id="description" type="hidden" value="<%= todo.description %>">
+                                              <input id="imatriculation" type="hidden" value="<%= todo.imatriculation %>">
+                                              <input id="lat" type="hidden" value="<%= todo.lat %>">
+                                              <input id="lon" type="hidden" value="<%= todo.lon %>">
+                                              <input id="num_chaisis" type="hidden" value="<%= todo.num_chaisis %>">
+
+                                              <input id="photos_1" type="hidden" value="<%= todo.photos_1 %>">
+                                              <input id="photos_2" type="hidden" value="<%= todo.photos_2 %>">
+                                              <input id="photos_3" type="hidden" value="<%= todo.photos_3 %>">
+                                              <input id="photos_4" type="hidden" value="<%= todo.photos_4 %>">
+                                              <input id="photos_5" type="hidden" value="<%= todo.photos_5 %>">
+                                              
+                                              <!--<td class="email"><%= todo.email %></td>
+                                              <td class="login"><%= todo.login %></td>
+                                              <td class="nom"><%= todo.nom %></td>
+                                              <td class="password"><%= todo.password %></td>
+                                              <td class="prenom"><%= todo.prenom %></td>
+                                              <td class="tel"><%= todo.tel %></td>
+                                              <td class="tel2"><%= todo.tel2 %></td> -->
+                                            
+                                              <!--<td><a data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></a></td>-->
+
+                                             <!-- <td><button class="btn btn-primary btn-xs btnEditvehicules" data-title="edit" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span></button></td>-->
+
+                                             <!-- <td><a data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></a></td> -->
+
+                                             <td><button class="btn btn-primary btn-xs btnEditvehicules" data-title="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></td>
+
+                                              <!--<td><a href="/todo/supprimer/<%= todo.id %>"><span class="glyphicon glyphicon-trash"></span></p> </a></td> -->
+
+                                              <!--<td><a data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></p> </a></td>-->
+                                            <td> <button class="btn btn-danger btn-xs btnmodifiervehicules" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button> </td>
+                                        </tr>
+                                    <% }); %>
+                                   
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                       </div>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                 <!--END STACKING CHART SCETION  -->
+        <!--END PAGE CONTENT -->
+         <!-- RIGHT STRIP  SECTION -->
+            <% include ../partials/menulateraldroit %>   
+         <!-- END RIGHT STRIP  SECTION -->
+    </div>
+
+    <!--END MAIN WRAPPER -->
+
+    <!-- FOOTER -->
+    <% include ../partials/footer %>   
+    <!--END FOOTER -->
+    <% include ../partials/js %>
+
+  <script type="text/javascript">
+   
+    $(document).ready(function() {
+      $('#example2').DataTable();
+    } );
+       
+        $(function () {
+            $(".vehicules").each(function () {
+              var $vehicules = $(this);
+
+              $vehicules.find('.btnEditvehicules').click(function(){
+
+
+                  // alert($user.find(".nom").text());
+                  // alert($user.find(".prenom").text());
+                  
+                  //pour toute  balise qui a pour id nom, dans son attribut value on doit mettre le texte du petit de user qui a pour classe nom
+                  $("#carte_grice_expire").val($vehicules.find(".carte_grice_expire").text())
+                  $("#carte_grice_issue").val($vehicules.find(".carte_grice_issue").text())
+                  $("#carte_grice_num").val($vehicules.find(".carte_grice_num").text())
+                  $("#carte_grise_place").val($vehicules.find(".carte_grise_place").text())
+                  $("#code").val($vehicules.find(".code").text())
+                  $("#code_gps").val($vehicules.find("#code_gps").val())
+                  $("#color").val($vehicules.find("#color").val())
+                  $("#date_fabri").val($vehicules.find("#date_fabri").val())
+                  $("#description").val($vehicules.find("#description").val())
+                  $("#imatriculation").val($vehicules.find("#imatriculation").val())
+                  $("#lat").val($vehicules.find("#lat").val())
+                  $("#lon").val($vehicules.find("#lon").val())
+                  $("#num_chaisis").val($vehicules.find("#num_chaisis").val())
+                  $("#photos_1").val($vehicules.find("#photos_1").val())
+                  $("#photos_2").val($vehicules.find("#photos_2").val())
+                  $("#photos_3").val($vehicules.find("#photos_3").val())
+                  $("#photos_4").val($vehicules.find("#photos_4").val())
+                  $("#photos_5").val($vehicules.find("#photos_5").val())
+                  $("#utilisateurId").val($vehicules.find("#utilisateurId").val())
+                  $("#serieVehiculeId").val($vehicules.find("#serieVehiculeId").val())
+                  $("#typesVehiculeId").val($vehicules.find("#typesVehiculeId").val())
+                  $("#id2").val($vehicules.find("#id").val())
+
+              });
+            });
+        });
+        
+        $(function () {
+          $(".vehicules").each(function () {
+              var $vehicules = $(this);
+              $vehicules.find('.btnmodifiervehicules').click(function(){
+                  $("#ids").val($vehicules.find("#id").val())
+              });
+            });
+          });
+    </script>
+</body>
+    <!-- END BODY -->
+</html>

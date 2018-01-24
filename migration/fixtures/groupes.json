@@ -1,0 +1,24 @@
+[
+	{
+        "model":"groupes",
+        "data": {
+			"name": "Administrator",
+		    "description": "Administrator",
+		    "icon":""
+		}
+	},{
+        "model":"groupes",
+        "data": {
+			"name": "Event manager",
+		    "description": "Event manager",
+		    "icon":""
+		}
+	},{
+        "model":"groupes",
+        "data": {
+			"name": "Client",
+		    "description": "Event client",
+		    "icon":""
+		}
+	}
+]

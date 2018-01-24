@@ -1,0 +1,23 @@
+{
+        "400":"OK",
+        "100":"Invalid Access Token",
+        "101":"Account not yet created",
+        "102":"Password or Login Invalid",
+        "103":"Session expires",
+        "104":"Account not active",
+        "105":"Fatal Error",
+        "106":"Account already exists",
+        "107":"Invalid activation code",
+        "108":"Invalid password",
+        "109":"Your session has expires",
+        "110":"Your phone number is not a valid phone Number",
+        "200":"Invalid service required",
+        "201":"Service Timed out",
+        "202":"Invalid parameters found",
+        "203":"This phone number do not matches with the SIM your are using",
+        "204":"Invalid code found",
+        "205":"Unable to send activation code",
+        "206":"You can only add coast to the event you created",
+        "207":"This image already removed",
+        "208":"This video already removed"
+}

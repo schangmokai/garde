@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="UTF-8" />
+    <title>BCORE Admin Dashboard Template | Dashboard </title>
+     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+     <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <!-- GLOBAL STYLES -->
+
+    <link rel="stylesheet" href="/plugins/Font-Awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/MoneAdmin.css" />
+
+    <!--END GLOBAL STYLES -->
+
+    <!-- PAGE LEVEL STYLES -->
+    <link href="/css/layout2.css" rel="stylesheet" />
+       <link href="/plugins/flot/examples/examples.css" rel="stylesheet" />
+       <link rel="stylesheet" href="/plugins/timeline/timeline.css" />
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+
+
+
+    <!-- END PAGE LEVEL  STYLES -->
+     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+    <!-- END HEAD -->
+
+    <!-- BEGIN BODY -->
+<body class="padTop53 " style="background-image:url(/img/fondEcran.PNG);
+background-repeat:no-repeat; height: 100%; width: 100%; margin-top:0%;">
+
+    <!-- MAIN WRAPPER -->
+    <div id="wrap" >
+        
+
+        <!-- HEADER SECTION -->
+            <% include ../partials/headersection %>     
+        <!-- END HEADER SECTION -->
+
+        <!-- MENU LATERAL GAUCHE -->
+              <% include ../partials/menulateralgauche %>
+        <!-- FIN MENU LATERAL GAUCHE -->
+
+
+
+        <!--PAGE CONTENT -->
+        <div id="content">
+             
+            <div class="inner" style="min-height: 700px;">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1> <b>Administration</b> GARDE </h1>
+                    </div>
+                </div>
+                <hr/>
+
+                
+
+                 <!--  STACKING CHART  SECTION   -->
+                <div class="row">
+                   <div class="col-lg-12">
+                    <div class="panel panel-default">
+                            <div class="panel-heading">
+                            Liste des serie_vehicules
+
+                            </div>
+
+                            <div class="panel-body">
+                              
+                                <div class="demo-container">
+                                <div id="placeholderStack" class="demo-placeholder">
+                                    
+
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="white-box">
+                                        
+                                                         <!-- Modal -->
+                                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Créer une serie_vehicules</h4>
+                                              </div>
+                                              <div class="modal-body">
+                                                   <form  action="/serie_vehicules/ajouter/" method="post" role="form">
+                                                       <div class="well">
+                                                            <center><img src="http://localhost/nodefille/image/leblanc.jpg"></center>
+                                                       </div>
+                                                      <div class="row">
+                                                        <div class="col-md-6 mb-3">
+                                                          <label for="validationDefault01">Nom de la serie_vehicules</label>
+                                                          <input type="text" class="form-control" name="name" placeholder="Nom du marque_vehicules" required>
+                                                        </div>
+                                                        <div class="col-md-6 mb-3">
+                                                           <label for="validationDefault07">Marque</label>
+                                                           <select class="form-control" name="marqueId" >     
+                                                              <% marquelist.forEach(function(todo, index) { %>
+                                                                      <option value="<%= todo.id %>"><%= todo.name %></option>
+                                                              <% }); %>
+                                                          </select>
+                                                        </div> 
+                                                      </div>
+                                                      
+                                                      
+                                                      <br>
+
+                                                      <div class="modal-footer">
+                                                           <button class="btn btn-primary btn-lg" type="submit" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign">  Enregistrer</span></button>
+                                                      </div>
+                                                    </form>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+
+                                        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Modifier une serie_vehicules</h4>
+                                              </div>
+                                              <div class="modal-body">
+                                                   <div class="well">
+                                                        <center><img src="http://localhost/nodefille/image/leblanc.jpg"></center>
+                                                   </div>
+                                                   <form  action="/serie_vehicules/update/" method="post">
+                                                       
+                                                     <input type="hidden" id="id2" name="id">
+                                                      <div class="row">
+                                                        <div class="col-md-6 mb-3">
+                                                          <label for="validationDefault01">Nom de la serie_vehicules</label>
+                                                          <input type="text" class="form-control" name="name" id="name"  required>
+                                                        </div>
+                                                         <div class="col-md-6 mb-3">
+                                                           <label for="validationDefault07">Marque</label>
+                                                           <select class="form-control" name="marqueId" >     
+                                                              <% marquelist.forEach(function(todo, index) { %>
+                                                                      <option value="<%= todo.id %>"><%= todo.name %></option>
+                                                              <% }); %>
+                                                          </select>
+                                                        </div> 
+                                                       
+                                                      </div>
+                                                      
+                                                      <br>
+
+                                                      <div class="modal-footer">
+                                                           <button class="btn btn-primary btn-lg" type="submit" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign">  Update</span></button>
+                                                      </div>
+                                                    </form>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+
+                                        <!-- delete pour la supression d'un types_vehicules -->
+
+
+                                     <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                                              <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                  <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                                <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                                              </div>
+
+                                                  <div class="modal-body">
+                                                   <form method="POST" action="/types_vehicules/supprimer/">
+                                                              <input type="hidden" name="id"  id="ids">
+                                                              <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+                                                              <div class="well">
+                                                                    <center><img src="http://localhost/nodefille/image/leblanc.jpg"></center>
+                                                              </div>
+                                                               <div class="modal-footer">
+                                                                                           
+                                                                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+
+                                                                  <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+
+                                                               </div> 
+                                                                            
+                                                        </div>
+                                                  </form> 
+                                                </div>
+                                            <!-- /.modal-content --> 
+                                          </div>
+                                              <!-- /.modal-dialog --> 
+                                        </div>
+
+
+                                        <table id="example" class="table table-striped table-bordered well" cellspacing="0" width="100%">
+
+                                                    <thead>
+                                                        <tr>
+                                                          <th>#</th>
+                                                          <th>Name</th>
+                                                          <th>Id_Marque</th>
+                                                          <!--<th>Add</th>-->
+                                                          <th>Edit</th>
+                                                          <th>delete</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                          <th>#</th>
+                                                          <th>Name</th>
+                                                          <th>Id_Marque</th>
+                                                          <!--<th>Add</th>-->
+                                                          <th>Edit</th>
+                                                          <th>delete</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                  <tbody>
+                                                    
+
+                                                    <% todolist.forEach(function(todo, index) { %>
+                                                         <tr class="types_vehicules">
+                                                              <th scope="row"><%= index %></th>
+                                                              <td class="name"><%= todo.name %></td>
+                                                              <input id="id" type="hidden" value="<%= todo.id %>">
+                                                               <td class="marque"><%= todo.marque == null? "":todo.marque.name %></td>
+                                                             <!--<td><a data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></a></td>-->
+
+                                                             <!-- <td><button class="btn btn-primary btn-xs btnEdittypes_vehicules" data-title="edit" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span></button></td>-->
+
+                                                             <!-- <td><a data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></a></td> -->
+
+                                                             <td><button class="btn btn-primary btn-xs btnEdittypes_vehicules" data-title="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></td>
+
+                                                              <!--<td><a href="/todo/supprimer/<%= todo.id %>"><span class="glyphicon glyphicon-trash"></span></p> </a></td> -->
+
+                                                              <!--<td><a data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></p> </a></td>-->
+                                                            <td> <button class="btn btn-danger btn-xs btnmodifiertypes_vehicules" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button> </td>
+                                                        </tr>
+                                                    <% }); %>
+
+
+                                                   
+                                                  </tbody>
+                                            </table>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                </div>
+                            </div>
+                        
+                            </div>
+        
+                            </div>
+                    </div>
+                     
+                </div>
+                 <!--END STACKING CHART SCETION  -->
+
+                 
+
+                
+            </div>
+
+        </div>
+        <!--END PAGE CONTENT -->
+
+         <!-- RIGHT STRIP  SECTION -->
+               <% include ../partials/menulateraldroit %>   
+         <!-- END RIGHT STRIP  SECTION -->
+    </div>
+
+    <!--END MAIN WRAPPER -->
+
+    <!-- FOOTER -->
+       <% include ../partials/footer %>   
+    <!--END FOOTER -->
+
+
+    <!-- GLOBAL SCRIPTS -->
+     <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <!-- END GLOBAL SCRIPTS -->
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/plugins/flot/jquery.flot.js"></script>
+    <script src="/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="/plugins/flot/jquery.flot.time.js"></script>
+     <script  src="/plugins/flot/jquery.flot.stack.js"></script>
+    <script src="/js/for_index.js"></script>
+
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="http://localhost/nodefille/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script> 
+
+  <script type="text/javascript">
+   
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+       
+        $(function () {
+            $(".types_vehicules").each(function () {
+              var $types_vehicules = $(this);
+
+              $types_vehicules.find('.btnEdittypes_vehicules').click(function(){
+
+                  // alert($user.find(".nom").text());
+                  // alert($user.find(".prenom").text());
+                  $("#name").val($types_vehicules.find(".name").text())
+                  $("#id_marque").val($types_vehicules.find(".id_marque").text())
+                  //pour toute  balise qui a pour id nom, dans son attribut value on doit mettre le texte du petit de user qui a pour classe nom                 
+                  $("#id2").val($types_vehicules.find("#id").val())
+
+              });
+            });
+        });
+        
+        $(function () {
+          $(".types_vehicules").each(function () {
+              var $types_vehicules = $(this);
+              $types_vehicules.find('.btnmodifiertypes_vehicules').click(function(){
+                  $("#ids").val($types_vehicules.find("#id").val())
+              });
+            });
+          });
+    </script>
+
+
+</body>
+
+    <!-- END BODY -->
+</html>

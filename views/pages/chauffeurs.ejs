@@ -1,0 +1,261 @@
+<!-- HEADER -->
+<% include ../partials/header %>   
+<!--END HEADER -->
+
+
+    <!-- MAIN WRAPPER -->
+    <div id="wrap" >
+        
+
+        <!-- HEADER SECTION -->
+            <% include ../partials/headersection %>     
+        <!-- END HEADER SECTION -->
+
+        <!-- MENU LATERAL GAUCHE -->
+              <% include ../partials/menulateralgauche %>
+        <!-- FIN MENU LATERAL GAUCHE -->
+
+        <!--PAGE CONTENT -->
+        <div id="content">
+             
+            <div class="inner" style="min-height: 700px;">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1> <b>Administration</b> GARDE </h1>
+                    </div>
+                </div>
+                <hr/>
+
+                
+
+                 <!--  STACKING CHART  SECTION   -->
+                <div class="row">
+                   <div class="col-lg-12">
+                    <div class="panel panel-default">
+                            <div class="panel-heading">
+                            Liste des Chauffeurs
+                            </div>
+                            <div class="panel-body">
+                              <div class="demo-container">
+                                <div id="placeholderStack" class="demo-placeholder">
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="white-box">
+
+                                  <!-- Modal -->
+                                        <% include ../elements/chauffeurs/add %>
+                                  <!-- form edit -->
+                                        <% include ../elements/chauffeurs/edit %>
+                                  <!-- delete pour la supression d'un groupes -->
+                                        <% include ../elements/chauffeurs/delete %>
+                                  <!-- /.modal-content --> 
+                                        
+                                  <!--            -->
+
+
+                <!-- delete pour la supression d'un chauffeurs -->
+
+
+            <!-- <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                      <div class="modal-dialog">
+                    <div class="modal-content">
+                          <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                      </div>
+
+                          <div class="modal-body">
+                           <form method="POST" action="/chauffeurs/supprimer/">
+                                      <input type="hidden" name="id"  id="ids">
+                                      <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+                                       <div class="modal-footer">
+                                                                   
+                                          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+
+                                          <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+
+                                       </div> 
+                                                    
+                                </div>
+                          </form> 
+                        </div> -->
+                    <!-- /.modal-content --> 
+                 
+                           </div>
+
+                              <table id="example2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
+                                    <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>nom</th>
+                                          <th>cni_date</th>
+                                          <th>cni_expire</th>
+                                          <th>cni_no</th>
+                                          <th>cni_place</th>
+                                          <th>addres</th>
+                                         <!-- <th>email</th>
+                                          <th>login</th>
+                                          <th>nom</th>
+                                          <th>password</th>
+                                          <th>prenom</th>
+                                          <th>Tel1</th>
+                                          <th>Tel2</th>-->
+                                          <!--<th>Add</th>-->
+                                          <th>Edit</th>
+                                          <th>delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+
+                                        <tr>
+                                          <th>#</th>
+                                          <th>nom</th>
+                                          <th>cni_date</th>
+                                          <th>cni_expire</th>
+                                          <th>cni_no</th>
+                                          <th>cni_place</th>
+                                          <th>addres</th>
+                                          <!--<th>email</th>
+                                          <th>login</th>
+                                          <th>nom</th>
+                                          <th>password</th>
+                                          <th>prenom</th>
+                                          <th>Tel1</th>
+                                          <th>Tel2</th>-->
+                                          <!--<th>Add</th>-->
+                                          <th>Edit</th>
+                                          <th>delete</th>
+                                        </tr>
+                                    </tfoot>
+                                  <tbody>
+
+
+                                  
+
+                                    <% todolist.forEach(function(todo, index) { %>
+                                         <tr class="chauffeurs">
+                                             <th scope="row"><%= index %></th>
+                                                <td class="nom"><%= todo.nom %></td>
+                                              <input id="id" type="hidden" value="<%= todo.id %>">
+                                              <td class="addres"><%= todo.addres %></td>
+                                              <td class="cni_date"><%= todo.cni_date %></td>
+                                              <td class="cni_expire"><%= todo.cni_expire %></td>
+                                              <td class="cni_no"><%= todo.cni_no %></td>
+                                              <td class="cni_place"><%= todo.cni_place %></td>
+
+  
+                                              <input id="cni_scan" type="hidden" value="<%= todo.cni_scan %>">
+                                              <input id="permis_cat" type="hidden" value="<%= todo.permis_cat %>">
+                                              <input id="permis_date" type="hidden" value="<%= todo.permis_date %>">
+                                              <input id="permis_expire" type="hidden" value="<%= todo.permis_expire %>">
+                                              <input id="permis_no" type="hidden" value="<%= todo.permis_no %>">
+                                              <input id="permis_place" type="hidden" value="<%= todo.permis_place %>">
+                                              <input id="permis_scan" type="hidden" value="<%= todo.permis_scan %>">
+
+                                              <input id="prenom" type="hidden" value="<%= todo.prenom %>">
+                                              <input id="tel" type="hidden" value="<%= todo.tel %>">
+                                              <input id="tel2" type="hidden" value="<%= todo.tel2 %>">
+                                              
+                                              
+                                              <!--<td class="email"><%= todo.email %></td>
+                                              <td class="login"><%= todo.login %></td>
+                                              <td class="nom"><%= todo.nom %></td>
+                                              <td class="password"><%= todo.password %></td>
+                                              <td class="prenom"><%= todo.prenom %></td>
+                                              <td class="tel"><%= todo.tel %></td>
+                                              <td class="tel2"><%= todo.tel2 %></td> -->
+                                            
+                                              <!--<td><a data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></a></td>-->
+
+                                              <!--<td><button class="btn btn-primary btn-xs btnEditchauffeurs" data-title="edit" data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-plus"></span></button></td>-->
+
+                                             <!-- <td><a data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></a></td> -->
+
+                                             <td><button class="btn btn-primary btn-xs btnEditchauffeurs" data-title="edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></td>
+
+                                              <!--<td><a href="/todo/supprimer/<%= todo.id %>"><span class="glyphicon glyphicon-trash"></span></p> </a></td> -->
+
+                                              <!--<td><a data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></p> </a></td>-->
+                                            <td> <button class="btn btn-danger btn-xs btnmodifierchauffeurs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button> </td>
+                                        </tr>
+                                    <% }); %>
+                                   
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                       </div>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                 <!--END STACKING CHART SCETION  -->
+        <!--END PAGE CONTENT -->
+         <!-- RIGHT STRIP  SECTION -->
+            <% include ../partials/menulateraldroit %>   
+         <!-- END RIGHT STRIP  SECTION -->
+    </div>
+
+    <!--END MAIN WRAPPER -->
+
+    <!-- FOOTER -->
+    <% include ../partials/footer %>   
+    <!--END FOOTER -->
+    <% include ../partials/js %>
+
+  <script type="text/javascript">
+   
+    $(document).ready(function() {
+      $('#example2').DataTable();
+    } );
+       
+        $(function () {
+            $(".chauffeurs").each(function () {
+              var $chauffeurs = $(this);
+
+              $chauffeurs.find('.btnEditchauffeurs').click(function(){
+
+
+                  // alert($user.find(".nom").text());
+                  // alert($user.find(".prenom").text());
+                  
+                  //pour toute  balise qui a pour id nom, dans son attribut value on doit mettre le texte du petit de user qui a pour classe nom
+                  $("#addres").val($chauffeurs.find(".addres").text())
+                  $("#cni_date").val($chauffeurs.find(".cni_date").text())
+                  $("#cni_expire").val($chauffeurs.find(".cni_expire").text())
+                  $("#cni_no").val($chauffeurs.find(".cni_no").text())
+                  $("#cni_place").val($chauffeurs.find(".cni_place").text())
+                  $("#cni_scan").val($chauffeurs.find("#cni_scan").val())
+                  $("#nom").val($chauffeurs.find(".nom").text())
+                  $("#permis_cat").val($chauffeurs.find("#permis_cat").val())
+                  $("#permis_date").val($chauffeurs.find("#permis_date").val())
+                  $("#permis_expire").val($chauffeurs.find("#permis_expire").val())
+                  $("#permis_no").val($chauffeurs.find("#permis_no").val())
+                  $("#permis_place").val($chauffeurs.find("#permis_place").val())
+                  $("#permis_scan").val($chauffeurs.find("#permis_scan").val())
+                  $("#prenom").val($chauffeurs.find("#prenom").val())
+                  $("#tel").val($chauffeurs.find("#tel").val())
+                  $("#tel2").val($chauffeurs.find("#tel2").val())
+                  $("#id2").val($chauffeurs.find("#id").val())
+
+              });
+            });
+        });
+        
+        $(function () {
+          $(".chauffeurs").each(function () {
+              var $chauffeurs = $(this);
+              $chauffeurs.find('.btnmodifierchauffeurs').click(function(){
+                  $("#ids").val($chauffeurs.find("#id").val())
+              });
+            });
+          });
+    </script>
+</body>
+    <!-- END BODY -->
+</html>

@@ -1,0 +1,123 @@
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modifier un users</h4>
+                      </div>
+                      <div class="modal-body">
+                          
+                           <form  action="/utilisateurs/update/" method="post" role="form">
+                               
+                             <input type="hidden" id="id2" name="id">
+                              <br>
+                              <div class="row">
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault01">addres de l'utilisateur</label>
+                                  <input type="text" class="form-control" name="addres" id="addres" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault02">Cni_ date de l'utilisateur</label>
+                                  <input type="text" class="form-control" name="cni_date" id="cni_date" required>
+                                </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault03">Cni_expire de l'utilisateur</label>
+                                  <input type="text" class="form-control" name="cni_expire" id="cni_expire" required>
+                                </div>
+                               
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault06">cni_no</label>
+                                  <input type="text" class="form-control" name="cni_no" id="cni_no" required>
+                                </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault05">N° Téléphone 1</label>
+                                  <input type="text" class="form-control" name="tel" id="tel" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault06">N° Téléphone 2</label>
+                                  <input type="text" class="form-control" name="tel2" id="tel2" required>
+                                </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                               
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault08">Cni_place</label>
+                                  <input type="text" class="form-control" name="cni_place" id="cni_place"  required>
+                                </div>
+
+                                 <div class="col-md-6 mb-3">
+                                  <label for="validationDefault04">Cni_scan</label>
+                                  <input type="text" class="form-control" name="cni_scan" id="cni_scan" required>
+                                </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                               
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault08">login</label>
+                                  <input type="text" class="form-control" name="login" id="login"  required>
+                                </div>
+
+                                 <div class="col-md-6 mb-3">
+                                  <label for="validationDefault04">Password</label>
+                                  <input type="password" class="form-control" name="password" id="password" required>
+                                </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                               
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault08">Nom</label>
+                                  <input type="text" class="form-control" name="nom" id="nom"  required>
+                                </div>
+
+                                 <div class="col-md-6 mb-3">
+                                  <label for="validationDefault04">Prenom</label>
+                                  <input type="text" class="form-control" name="prenom" id="prenom" required>
+                                </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault04">email</label>
+                                  <input type="text" class="form-control" name="email" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                   <label for="validationDefault07">Groupe</label>
+                                   <select class="form-control" name="groupeId" >     
+                                      <% groupelist.forEach(function(todo, index) { %>
+                                              <option value="<%= todo.id %>"><%= todo.description %></option>
+                                      <% }); %>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6 mb-3">
+                                  <label for="validationDefault04">Images</label>
+                                  <input type="file" class="form-control" name="filetoupload">
+                                </div>
+                                
+                              </div>
+                              <br>
+                              <div class="modal-footer">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <button type="button" class="btn btn-danger btn-lg width-100" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Annuler</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <button class="btn btn-primary btn-lg width-100" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
