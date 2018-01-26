@@ -277,6 +277,8 @@ app.get('/chauffeurs/listes', chauffeurs.listes);
 
 app.get('/chauffeurs/chauffeurs', chauffeurs.chauffeurs);
 
+app.get('/chauffeurs/map', chauffeurs.map);
+
 
 
 
@@ -509,6 +511,10 @@ app.get('/datchboard', acceuils.datchboard);
 
 
 app.post('/api/findChauffeurByCodeVehicule', chauffeurApi.findChauffeurByCodeVehicule);
+
+
+
+app.post('/api/insertposition', utilisateurApi.insertposition);
 
 
 

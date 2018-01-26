@@ -206,6 +206,13 @@ exports.listes =  function(req, res) {
       });  
 };
 
+
+
+exports.map =  function(req, res) { 
+    res.render('pages/map');  
+};
+
+
 exports.chauffeurs =  function(req, res) { 
     var code = "code";
     model.chauffeurs_vehicules.findAll({

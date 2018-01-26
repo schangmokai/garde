@@ -35,6 +35,7 @@ exports.findChauffeurByCodeVehicule =  function(req, res) {
 
 
     var code = req.body.code;
+
     model.chauffeurs_vehicules.findAll({
         attributes:[],
         include:[
@@ -52,6 +53,7 @@ exports.findChauffeurByCodeVehicule =  function(req, res) {
             }
         ]
     }).then(result => {
+       console.log("============================== " + result);
        res.send(result); 
     });  
 };
