@@ -192,7 +192,6 @@ exports.update = function(req, res) {
             "email": true,
             "login": true,
             "nom": true,
-            "password": true,
             "prenom": true,
             "tel": true,
             "tel2": true,

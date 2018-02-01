@@ -19,6 +19,8 @@ module.exports = function(sequelize, DataTypes) {
       prenom: { type: DataTypes.STRING },
       image: { type: DataTypes.STRING },
       tel: { type: DataTypes.STRING },
+      status: { type: DataTypes.INTEGER },
+      danger: { type: DataTypes.INTEGER },
       tel2: { type: DataTypes.STRING }
   });
      
@@ -34,6 +36,17 @@ module.exports = function(sequelize, DataTypes) {
 
 
    Utilisateur.beforeCreate(function(utilisateur, options) {
+    return cryptPassword(utilisateur.password)
+      .then(success => {
+        utilisateur.password = success;
+      })
+      .catch(err => {
+        if (err) console.log(err);
+      });
+  });
+
+
+  Utilisateur.beforeUpdate(function(utilisateur, options) {
     return cryptPassword(utilisateur.password)
       .then(success => {
         utilisateur.password = success;

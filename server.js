@@ -10,6 +10,11 @@ var liste = [];
 var bodyParser = require('body-parser'); // Charge le middleware de gestion des paramètres
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 var server = require('http').createServer(app), ent = require('ent');
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+
 var Multer = require('multer');
 app.set('view engine', 'ejs');
 var estconnecte = 0;
@@ -517,6 +522,12 @@ app.post('/api/findChauffeurByCodeVehicule', chauffeurApi.findChauffeurByCodeVeh
 app.post('/api/insertposition', utilisateurApi.insertposition);
 
 
+app.post('/api/utilisateurs/logins', utilisateurApi.logins);
+
+
+app.get('/api/utilisateurs/listesUserEnDanger', utilisateurApi.listesUserEnDanger);
+
+
 
 
 
@@ -525,6 +536,8 @@ app.post('/api/insertposition', utilisateurApi.insertposition);
 /**                            Fin API                                  ******/
 /**                                                                     ******/
 //////////////////////////////////////////////////////////////////////////////:
+
+
 
 
 

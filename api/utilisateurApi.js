@@ -30,6 +30,7 @@ exports.logins= function(req, res){
 }*/
 
 
+
 var formidable = require('formidable');
 var fs = require('fs');
 var bcrypt = require('bcrypt-nodejs');
@@ -95,4 +96,90 @@ exports.insertposition = function(req, res) {
             res.json({ code: '105', message: errorCode[105], data: {} });
         }
 };
+
+
+
+exports.listesUserEnDanger = function(req, res) {
+    model.utilisateur.findAll({ 
+              attributes:['id' ,'nom', 'prenom', 'image', 'tel'],
+              include: [ 
+                {
+                  model: model.groupes, 
+                  attributes:[]
+                } 
+              ], 
+              where:{
+                    danger: 1
+              }
+
+      }).then(result => {
+         res.send(result); 
+    });  
+};
+
+
+
+exports.logins= function(req, res){ 
+   try{
+    /*var connected = req.session.userInfo;
+    if(undefined != connected && null != connected){
+      res.json({ code: '400', message: errorCode[400],  data: {}, message:errorCode[400]});
+      return;
+    }*/
+
+    var login = req.body.login;
+    var password = req.body.password;
+
+    bcrypt.genSalt(10, function(err, salt) {
+          // Encrypt password using bycrpt module
+      try{
+            if (err){
+              res.json({ code: '105', message: errorCode[105],  data: {} });
+              return;
+            }
+            model.utilisateur.find({
+              where:{
+                login:login
+              }
+            })
+
+        .then(utilisateurs => {
+          
+          if(utilisateurs != null){
+
+            bcrypt.compare(password, utilisateurs.password, function(err, crypted) {
+              try{
+                if(crypted){
+                  delete utilisateurs.password;
+                  delete utilisateurs.reccode;
+                  console.log("correct");
+                  res.send({code: '400', message: errorCode[400], id: utilisateurs.id, status: utilisateurs.status} )
+                }else{
+                  res.send({code: '102', message: errorCode[102]} )
+                }
+              }catch(r){
+                console.log(r);
+                res.send({code: '105', message: errorCode[105]} )              
+              }
+            });
+          }else{
+            res.send({code: '101', message: errorCode[101]} )    
+          }
+            }, error=>{
+              console.log(error);
+              res.json({ code: '105', message: errorCode[105],  data: {} });
+            }); 
+      }catch(r){
+        console.log(r);
+        res.json({ 
+          code: '105', message: errorCode[105], 
+          data: {}
+        });
+      }
+      });
+  }catch(r){
+      console.log(r);
+      res.json({ code: '105', message: errorCode[105],  data: {} });
+  }
+}
 
