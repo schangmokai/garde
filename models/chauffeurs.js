@@ -25,7 +25,12 @@ module.exports = function(sequelize, DataTypes) {
     });
 
 
-
+    Chauffeurs.associate = models => {
+      Chauffeurs.hasMany(models.clients_vehicules);
+      Chauffeurs.map = [models.clients_vehicules];
+      Chauffeurs.hasMany(models.chauffeurs_vehicules);
+      Chauffeurs.map = [models.chauffeurs_vehicules];
+    }
 
 
       

@@ -29,6 +29,8 @@ module.exports = function(sequelize, DataTypes) {
       Utilisateur.belongsTo(models.groupes);
       Utilisateur.hasMany(models.utilisateurs_gps);
       Utilisateur.map = [models.utilisateurs_gps];
+      Utilisateur.hasMany(models.clients_vehicules);
+      Utilisateur.map = [models.clients_vehicules];
   }
 
 

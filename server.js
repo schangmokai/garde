@@ -517,15 +517,19 @@ app.get('/datchboard', acceuils.datchboard);
 
 app.post('/api/findChauffeurByCodeVehicule', chauffeurApi.findChauffeurByCodeVehicule);
 
+app.post('/api/findClientByVehicule', chauffeurApi.findClientByVehicule);
+
+
+app.post('/api/saveClientVehicule', chauffeurApi.saveClientVehicule);
 
 
 app.post('/api/insertposition', utilisateurApi.insertposition);
 
-
 app.post('/api/utilisateurs/logins', utilisateurApi.logins);
 
-
 app.get('/api/utilisateurs/listesUserEnDanger', utilisateurApi.listesUserEnDanger);
+
+app.post('/api/utilisateurs/signalerdanger', utilisateurApi.signalerdanger);
 
 
 

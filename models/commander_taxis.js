@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
 
     var Commander_taxis  = sequelize.define('commander_taxis', {
          date_debut: {type: DataTypes.STRING},
-          date_fin: { type: DataTypes.STRING},
+         date_fin: { type: DataTypes.STRING},
           iscommand: { type: DataTypes.STRING }, 
           lat_arrive: { type: DataTypes.STRING },
           lat_depart: { type: DataTypes.STRING },

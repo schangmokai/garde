@@ -98,6 +98,49 @@ exports.insertposition = function(req, res) {
 };
 
 
+exports.signalerdanger = function(req, res) {
+    
+    try{
+
+            var data = {};
+            var ready = true;
+            data["danger"] = 1;
+            var sequelize = model.utilisateur.dbo;
+            if(ready){
+                model.utilisateur.update(data,{
+                            where:{
+                                id:req.body["id"]
+                            }
+                        }).then(created=>{
+                            if(created != null){
+                              res.send({
+                                  code: '200', message: errorCode[200],
+                                  data: {}
+                              }); 
+                            }else{
+                                res.json({
+                                    code: '202', message: errorCode[202],
+                                    data: {}
+                                });
+                            }
+                        }).catch(function(err){
+                            res.json({ code: '105', message: errorCode[105], data: {} });
+                        });
+
+
+            }else{
+                res.json({
+                    code: '202', message: errorCode[202],
+                    data: {}
+                });
+            }
+        }catch(r){
+            console.log(r);
+            res.json({ code: '105', message: errorCode[105], data: {} });
+        }
+};
+
+
 
 exports.listesUserEnDanger = function(req, res) {
     model.utilisateur.findAll({ 
@@ -116,6 +159,9 @@ exports.listesUserEnDanger = function(req, res) {
          res.send(result); 
     });  
 };
+
+
+
 
 
 

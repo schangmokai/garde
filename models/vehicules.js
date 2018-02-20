@@ -30,6 +30,8 @@ module.exports = function(sequelize, DataTypes) {
   Vehicules.associate = models => {
     Vehicules.hasMany(models.chauffeurs_vehicules);
     Vehicules.map = [models.chauffeurs_vehicules];
+    Vehicules.hasMany(models.clients_vehicules);
+    Vehicules.map = [models.clients_vehicules];
   };
 
   
