@@ -519,9 +519,9 @@ app.post('/api/findChauffeurByCodeVehicule', chauffeurApi.findChauffeurByCodeVeh
 
 app.post('/api/findClientByVehicule', chauffeurApi.findClientByVehicule);
 
+app.post('/api/findAllClientByVehiculeId', chauffeurApi.findAllClientByVehiculeId);
 
 app.post('/api/saveClientVehicule', chauffeurApi.saveClientVehicule);
-
 
 app.post('/api/insertposition', utilisateurApi.insertposition);
 

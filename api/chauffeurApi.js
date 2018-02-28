@@ -85,16 +85,61 @@ exports.findClientByVehicule =  function(req, res) {
             }
 
         ],
+
         where:{
             status:1
         }
-
 
     }).then(result => {
        res.send(result); 
     }); 
 
 };
+
+//pour recupérer tous les clients actifs présent dans le vehcule a un instant précis
+
+exports.findAllClientByVehiculeId =  function(req, res) { 
+    
+    var chauffeurId = req.body.chauffeurId;
+    var vehiculeId = req.body.vehiculeId;
+    
+    
+    model.clients_vehicules.findAll({
+        attributes:[],
+        include:[
+            {
+                model:model.chauffeurs,
+                attributes:[],
+                where:{
+                    id: chauffeurId,
+                }
+            },
+            {
+                model:model.vehicules,
+                attributes:[],
+                where:{
+                    id: vehiculeId,
+                }
+            },
+            {
+                model:model.utilisateur,
+                attributes:["nom", "prenom", "image", "tel"]
+            }
+
+        ],
+
+        where:{
+            status:1
+        }
+
+    }).then(result => {
+       console.log("le mokai pros");
+       res.send(result); 
+    }); 
+
+};
+
+
 
 
 exports.saveClientVehicule =  function(req, res) { 
