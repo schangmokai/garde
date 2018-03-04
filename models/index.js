@@ -13,8 +13,7 @@ config.options.logging = function(msg){
 // connect
 
 try{
-
-  var sequelize = new Sequelize(config.database, config.username,'', config.options);
+  var sequelize = new Sequelize(config.database, config.username, config.password, config.options);
   console.log("sucess de la connexion");
 }catch(er){
   console.log(err);

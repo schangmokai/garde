@@ -7,16 +7,14 @@
 	"repertoireQrcode": "C:/wamp/www/Garde/Qrcode/",
 	"database":"gardes",
 	"username":"root",
-	"password":"",
+	"password":"gabriel1&",
 	"options":{
-	  "host": "localhost",
-	  "dialect": "mysql",
-
-	  "pool": {
-	    "max": 5,
-	    "min": 0,
-	    "idle": 10000
-	  }
-
+	  	"host": "localhost",
+	  	"dialect": "mysql",
+	  	"pool": {
+	    	"max": 5,
+	    	"min": 0,
+	    	"idle": 10000
+	  	}
 	}
 }
