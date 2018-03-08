@@ -87,7 +87,8 @@ exports.findClientByVehicule =  function(req, res) {
         ],
 
         where:{
-            status:1
+            status:1,
+            createdAt: new Date()
         }
 
     }).then(result => {
